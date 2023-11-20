@@ -1,0 +1,65 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.calculator2.MainViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/firstNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter first number"
+            android:text="@={viewModel.firstNumber}" />
+
+        <EditText
+            android:id="@+id/secondNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/firstNumber"
+            android:hint="Enter second number"
+            android:text="@={viewModel.secondNumber}" />
+
+        <Button
+            android:id="@+id/calculateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/secondNumber"
+            android:onClick="@{() -> viewModel.onCalculateClick()}"
+            android:text="+" />
+        <Button
+            android:id="@+id/calculateButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/calculateButton"
+            android:onClick="@{() -> viewModel.ondivisonClick()}"
+            android:text="/" />
+        <Button
+            android:id="@+id/calculateButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/calculateButton2"
+            android:onClick="@{() -> viewModel.onMutliClick()}"
+            android:text="x" />
+
+        <Button
+            android:id="@+id/calculateButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/calculateButton3"
+            android:onClick="@{() -> viewModel.onSubtractClick()}"
+            android:text="-" />
+
+        <TextView
+            android:id="@+id/resultText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:layout_below="@id/calculateButton1"
+            android:text="@{viewModel.result}" />
+    </RelativeLayout>
+</layout>
